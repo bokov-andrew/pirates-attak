@@ -32,6 +32,25 @@ class Cannon(Actor):
         cannonball = Projectile(pos = mypos,pointat=target)
         return(cannonball)
 
+# Let's create a new class named Base. Like the ones above, make it inherit from
+# Actor like our other classes
+    # define an __init__() method, with self, img, and pos as the first three
+    # arguments again like above. Make a default img from the castle picture we
+    # found and make up a reasonable default (x,y) tuple for the pos arguemtn.
+    # Unlike above, have the following new arguments: speed,hitpoints,player
+    # and make up some reasonable numeric values but player can be None
+        # The body of the function should use Actor.__init__(self,img,pos)
+        # Then, add a self.cannons attribute that will be an empty list
+        # The self.speed, self.hitpoints, and self.player attributes should be
+        # set equal the corresponding arguments
+    
+    # define a buyCannon method with arguments self,price,pos, and **kwargs
+        # In the body, do self.cannons += [Cannon(pos,**kwargs)]
+        # this adds the cannon
+        # Soon, after we implement having points, we will also subtract the
+        # the price of the cannon from the points the player has saved up
+        # 
+
 cannon = Cannon()
 
 def on_mouse_move(pos):
