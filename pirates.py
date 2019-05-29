@@ -1,6 +1,11 @@
 import random, pgzero, pgzrun
 from pygame.math import Vector2
 
+# Find/make images for the following buttons and but them into the images
+# directory:
+# Debug, Help, Shop, End Turn
+# Later we'll reference them in this code
+
 ####################
 # global variables #
 ####################
@@ -8,7 +13,6 @@ cannonball = None
 GRAVITY=1
 # Some more variables to add here (make up values for now):
 # p1points, gamePhase, gameTurn, WIDTH,HEIGHT, p1activeCannon
-
 
 
 class Projectile(Actor):
