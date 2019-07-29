@@ -16,7 +16,7 @@ GRAVITY=1
 
 
 class Projectile(Actor):
-    def __init__(self,img='cannonball',pos=(160,140),pointat=(170,130)
+    def __init__(self,img='cannonball',pos=(60,140),pointat=(170,130)
                  ,boost=0.1,damage=10):
         Actor.__init__(self,img,pos)
         vel = Vector2()
@@ -31,7 +31,7 @@ class Projectile(Actor):
         self.velocity.y-=GRAVITY
         
 class Cannon(Actor):
-    def __init__(self,img='canon',pos=(10,140)):
+    def __init__(self,img='canon',pos=(180,140)):
         Actor.__init__(self,img,pos, anchor=('left', 'center'))
         self.length = self.width
         self.pivot = self.midleft
@@ -52,15 +52,18 @@ class Cannon(Actor):
 
 # Let's create a new class named Base. Like the ones above, make it inherit from
 # Actor like our other classes
+class Base(Actor):
     # define an __init__() method, with self, img, and pos as the first three
     # arguments again like above. Make a default img from the castle picture we
     # found and make up a reasonable default (x,y) tuple for the pos arguemtn.
     # Unlike above, have the following new arguments: speed,hitpoints,player
     # and make up some reasonable numeric values but player can be None
-        # The body of the function should use Actor.__init__(self,img,pos)
-        # Then, add a self.cannons attribute that will be an empty list
-        # The self.speed, self.hitpoints, and self.player attributes should be
-        # set equal the corresponding arguments
+    def __init__(self, img="castle0", pos=(10,300), speed=0, hp=60, pl=1):
+        Actor.__init__(self,img,pos)
+        self.cannons=[]
+        self.speed=speed
+        self.hp=hp
+        self.pl=pl
     
     # define a buyCannon method with arguments self,price,pos, and **kwargs
         # In the body, do self.cannons += [Cannon(pos,**kwargs)]
@@ -74,6 +77,7 @@ class Cannon(Actor):
 
 # We're going to get rid of the line below...
 cannon = Cannon()
+base=Base()
 # ...and replace it with base = Base()
 # ...and then call the buyCannon() method of this newly created base object
 # Now you'll have a base with one cannon
@@ -102,5 +106,6 @@ def draw():
     # instead of drawing just this one cannon (get rid of the line below)
     cannon.draw()
     # Here also draw the base object
+    base.draw()
     
 pgzrun.go()
