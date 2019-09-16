@@ -31,7 +31,7 @@ class Projectile(Actor):
         self.velocity.y-=GRAVITY
         
 class Cannon(Actor):
-    def __init__(self,img='canon',pos=(180,140)):
+    def __init__(self,img='canon',pos=(350,240)):
         Actor.__init__(self,img,pos, anchor=('left', 'center'))
         self.length = self.width
         self.pivot = self.midleft
@@ -100,12 +100,13 @@ def update():
 
 def draw():
     screen.clear()
-    if cannonball: cannonball.draw()
     # check that base.cannons is not empty (anymore) and if it is not, use a for
     # statement to FOO.draw() each item in base.cannons (base cannons is a list)
     # instead of drawing just this one cannon (get rid of the line below)
     cannon.draw()
     # Here also draw the base object
     base.draw()
+    if cannonball: cannonball.draw()
+    screen.blit(images.help_button,(10,540))
     
 pgzrun.go()
